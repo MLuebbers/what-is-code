@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>What is Code: Chapter 6</title>
+        <link rel="stylesheet" href="../style.css">
+    </head>
+    <body>
+        
+        <nav>
+            <ul>
+                <li>6.0<a href="../index.html">Intro↗</a></li>
+                <li>6.1<a href="./the-framework.html">The Framework: Wilder, Younger Cousin of the Software Development Kit↗</a></li>
+                <li class="selected">6.2<a href="./what-is-debugging.html">What Is Debugging?↗</a></li>
+                <li>6.3<a href="./nothing-is-built.html">Nothing Is Built↗</a></li>
+                <li>6.4<a href="./how-does-testing-work.html">How Does Testing Work?↗</a></li>
+                <li>6.5<a href="./and-now-for-something-beautiful.html">And Now For Something Beautiful...↗</a></li>
+            </ul>
+        </nav>
+        <article>
+            <header>
+                <span class="number">6.2</span>
+                <h1>What is Debugging?</h1>
+            </header>
+            <span class="hspacer"></span>
+            <section>
+                <div class="text">
+                    <p>
+                        In programming, there are as many ways to destroy something as to create something. One stray character is all that’s required. Say you forget a semicolon or use an accented “é” somewhere, but the code is not prepared for such a peculiarity—<i>KABOOM!</i> Or you add two things together, but one is the numeral 4 and the other is “4” as a string, as you might use to say “4 and 20 blackbirds baked in a pie.” To the computer, that “4 and 20” has no numeric significance.
+                    </p>
+                    <p>
+                        This sort of thing really happens, <span class="footnote" style="color:red;">and part of the job is remembering that 4 + 20 is 24 and 4 + “20” is “420”.<span class="note" style="transform:translateY(calc(-2 * var(--font-small)))">The concatenation operation should have produced "420", with no period inside the quotation marks. Thanks to @castaway on GitHub</span></span>
+                    </p>
+                    <p>
+                        Programming <i>is</i> debugging. It’s the expectation that things won’t work. This is not something people bring up, just like they don’t bring up their medical history on the first date. Most languages have constructs built in for catching failures, trapping them like wild animals, examining them, and, well, exterminating them. In time, as the relationship between you and a programming language blossoms, you come to realize that what truly characterizes a language is not what it does, but how it tells you what broke. Most of your programming life will be spent trying to figure out what broke, and if the computer helps you maybe you can watch your kids play soccer.
+                    </p>
+                    <p>
+                        When I started programming I felt that each time the program crashed, I’d failed. I found myself cringing, desperate, unable to move forward. There’s even a novel by Ellen Ullman, <i>The Bug</i>, about the anxieties and social complexities that arise when a serious bug is hard to find.
+                    </p>
+                    <p>
+                        Eventually, though, I learned to submit. I let myself drift into the computer, to remember the math I know, the things I understand about types and categories and lists and syntax. Sometimes bugs cause error messages to pop up; sometimes they cause the program to give up the ghost and quit suddenly; sometimes they get caught in terrible loops and fill up the memory and choke all the resources of the computer until it has to be restarted. That’s called a stack overflow. Sometimes a request goes too hard, for example, calling itself so many times that the stack, which is a finite resource, fills up and can’t take it anymore. Hence the name of the website <span class="tech">Stack Overflow</span>, where programmers go to answer questions and help each other solve bugs. It’s the 62nd-most-visited website in the world, trailing Craigslist by a few spots.
+                    </p>
+                    <p>
+                        Randomly selected item from Stack Overflow, to give you a taste of programming:
+                        <div class="quote">
+                            <p>
+                            Angular 1.3 + ui-router + generator-hg-poly embedding nested(?) views not working
+                            </p>
+                            — <a href="https://github.com/django/django/commit/170f7115bbae45f26ca8078e749dfe67445a57ea">TheOncomingCode, StackOverflow.com</a>
+                        </div>
+                        TheOncomingCode seems to be saying that he’s using the <span class="tech">AngularJS</span> framework in <span class="tech">JavaScript</span> and another piece of code called ui-router. Judging from its name, the latter helps set up routes to address components of a user interface— that is, it helps manage how you view your data.
+                    </p>
+                    <p style="float:left; width:15%; margin: var(--spacer-small) var(--spacer-large) 0 0;">
+                        <img src="../images/semicolon.svg">
+                        <span class="caption">Image by me</span>
+                    </p>
+                    <p>
+                        But wait, it turns out that generator-hg-poly is actually generator-ng-poly, which … Oh, man. I went and looked at that tool,and it describes itself as a— brace yourself— <span class="quote">“Yeoman generator for modular AngularJS apps with Gulp and optional Polymer support,”</span> which, I mean, come the hell on. But you know what? In for a pound. Let’s do this.
+                    </p>
+                    <p>
+                        A search for <span class="tech">Yeoman</span> says it’s a scaffolding tool, which means it makes little folders for your Web apps that help you get started programming. Useful.
+                    </p>
+                    <p>
+                        We know what Angular is; it’s a framework.
+                    </p>
+                    <p>
+                        <span class="tech">Gulp</span>, its website says, will “automate and enhance your workflow.” You can intuit, using context clues, that it’s a tool that helps you build software. Somehow. You’d never know this from the salmon background on its site, and sometimes you simply get so,so tired. …
+                    </p>
+                    <p>
+                        <span class="tech">Polymer</span> is a “Web components” library, which means it gives you little reusable code components you can use on your Web pages—sliding drawers and drop-down menus, buttons, etc. OK.
+                    </p>
+                    <p>
+                        So what we know now is that the combination of Angular, ui-router, Yeoman, Gulp, and Polymer is somehow not working for TheOncomingCode. All of these things are tools designed to make it easier to code. But they all introduce their own complexity. This person is trying to make a Web browser do something in JavaScript, and it’s crapping out.
+                        The top 10 tags on Stack Overflow’s help-wanted listings, June 1:
+                    </p>
+                    <aside>
+                        The top 10 tags on Stack Overflow’s help-wanted listings, June 1:
+                        <div class="vchart">
+                            <div class="bar">256</div>
+                            <div class="subtitle">Java</div>
+                            <div class="bar" style="width:90%;">212</div>
+                            <div class="subtitle">JavaScript</div>
+                            <div class="bar" style="width:50%;">109</div>
+                            <div class="subtitle">C#</div>
+                            <div class="bar" style="width:50%;">106</div>
+                            <div class="subtitle">C++</div>
+                            <div class="bar" style="width:50%;">105</div>
+                            <div class="subtitle">Python</div>
+                            <div class="bar" style="width:40%;">86</div>
+                            <div class="subtitle">PHP</div>
+                            <div class="bar" style="width:40%;">85</div>
+                            <div class="subtitle">sQL</div>
+                            <div class="bar" style="width:20%;">69</div>
+                            <div class="subtitle">Linus</div>
+                            <div class="bar" style="width:20%;">67</div>
+                            <div class="subtitle">CSS</div>
+                            <div class="bar" style="width:20%;">66</div>
+                            <div class="subtitle">HTML</div>
+                        </div>
+                        
+                    </aside>
+                    <p>
+                        Someone came in to answer this question, too. <span class="quote">“To be able to use the header state in the home state,”</quote> wrote Stack Overflow user Matt Tester, “they will need to [be] nested (chained). So, it’s not obvious, but you can safely make one state the parent of another in separate files/configs because of the way registration works.” So. There you go. That solves it.
+                    </p>
+                    <p>
+                        JavaScript is fast-moving right now. Too much of what you know today will be useless in six months. Every hard-fought factoid about the absolute best and most principled way to use the language will be fetid zoo garbage by the end of the year. And some sniveling, bearded man-toddler will be looking slightly to your right with his pale, buzzword-infected eyes and awkwardly mumbling, <span class="quote">“Yeah, no, wow, it says you have a lot of Gulp and Angular, but I’m guessing you don’t use Fleejob or Grimmex with the Snurt extensions? (<i>Long sigh.</i>) I’m just not sure if you’re gonna like working here.”</span>
+                    </p>
+                    <p>
+                        Anyway, that’s one question on Stack Overflow. 
+                    </p>
+                </div>
+            </section>
+            <footer>
+                <span class="previous">6.1<a href="./the-framework.html">The Framework: Wilder, Younger Cousin of the Software Development Kit↖</a></span>
+                <span class="next">6.3<a href="./nothing-is-built.html">Nothing is Built↗</a></span>
+            </footer>
+        </article>
+    </body>
+</html>

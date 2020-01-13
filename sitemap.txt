@@ -1,0 +1,22 @@
+header
+    -title
+    -number
+img
+asside
+footnotes
+    -button
+    -window
+img caption
+section
+    -subtitle
+    -number
+    -body
+code
+lists
+dialogue
+link
+quote
+product
+
+
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>What is Code: Chapter 6</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        
+        <nav>
+            <ul>
+                <li class="selected">6.0<a href="./index.html">Intro↗</a></li>
+                <li>6.1<a href="./pages/the-framework.html">The Framework: Wilder, Younger Cousin of the Software Development Kit↗</a></li>
+                <li>6.2<a href="./pages/what-is-debugging.html">What Is Debugging?↗</a></li>
+                <li>6.3<a href="./pages/nothing-is-built.html">Nothing Is Built↗</a></li>
+                <li>6.4<a href="./pages/how-does-testing-work.html">How Does Testing Work?↗</a></li>
+                <li>6.5<a href="./pages/and-now-for-something-beautiful.html">And Now for Something Beautiful...↗</a></li>
+            </ul>
+        </nav>
+        <article>
+            <header>
+                <span class="number">6.0</span>
+                <h1>How Are Apps Made?</h1>
+            </header>
+            <span class="hspacer"></span>
+            <section>
+                <div class="text">
+                    <p>
+                        One of the privileges of owning a Mac is that you can download a program by Apple called <span class="tech">Xcode</span>. <span class="footnote">This is an IDE, an Integrated Development Environment.<span class="note">A language is a way of perceiving the world. A standard library is a way of organizing the world. And an IDE is a way of bringing those things together in a lively and dynamic way.</span></span>
+                    </p>
+                    <p>
+                        It’s an enormous download, more than 2 gigabytes, or roughly the size of an hour of DVD-quality video. Xcode is the heart of Apple. <span class="footnote">It’s not only how the company writes software, it’s the tool for everyone who wants to write software for the Mac or iPhone.<span class="note" style="transform:translateY(calc(-3 * var(--font-small)))"> In the same way Microsoft makes a tool available called Visual Studio, which it uses to write its own software.</span></span>
+                    </p>
+                    <img src="./images/xcode.png">
+                    <p>
+                        Within Xcode are whole worlds to explore. For example, one component is the iOS SDK (Software Development Kit). You use that to make iPhone and iPad apps. That SDK is made up of dozens and dozens of APIs (Application Programming Interfaces). There’s an API for keeping track of a user’s location, one for animating pictures, one for playing sounds, and several for rendering text on the screen and collecting information from users. And so forth.
+                    </p>
+                    <p>
+                        Maybe you’re starting to see some strands here. Remember the way the Smalltalk environment worked, a screen with a bunch of windows? There are powerful echoes in Xcode.
+                    </p>
+                    <p>
+                        There are other ways of working— I tend to do most of my code in a text editor with a black background, far less to see at first glance, though actually just as complex— but this right here is some serious code life. You fill out some fields, wire some things together (really, sometimes it’s done by connecting virtual wires into virtual holes), and start coding.
+                    </p>
+                    <p>
+                        When someone from Apple stands onstage and announces some new thing that ends with “Kit,” such as ResearchKit or <span class="tech">HealthKit</span>— or <span class="tech">WatchKit</span>, the set of routines specifically for the Apple Watch— Xcode is where those kits will land, fully documented, to be used to make software.
+                    </p>
+                    <p>
+                        Some functionsare reserved for the manufacturer. You know how Apple is touting that you can track someone’s heartbeat using an Apple Watch? Apple hasn’t documented how to do it yet, not for the world. Maybe the company is worried that you’ll misuse it somehow. Perhaps heartbeat monitoring requires careful battery management, and because the watch already has battery issues, Apple wants to avoid making things worse by letting anyone in there. It’s likely that people are trying to figure out how to access that heartbeat API right now, though. That’s just the way people are.
+                    </p>
+                    <p>
+                        <span class="footnote">Apple is really good at all of this.<span class="note">You know who else is good at this sort of thing? Microsoft: developers, developers, developers, developers.</span></span> It publishes interface guidelines and gives people tools for arranging app interfaces in predictable ways that end users will find familiar. It sets the flow with which to go.
+                    </p>
+                    <p>
+                        Let’s say you’re making a podcasting application, and playing an audio file is a key feature. Great. Create an object of class <span class="inline-code">AVAudioPlayer</span>, and add a button to the screen, then connect that button to the code so that when clicked, the button sends the message “play.”
+                    </p>
+                    <p>
+                        There’s a lot going on at once, so you want to leave it to the operating system to keep track of where windows are. It’s up to an IDE to help you connect your ideas into this massive, massive world with tens of thousands of methods so you can play a song, rewind a song, keep track of when the song was played (meaning you also need to be aware of the time zones), or keep track of the title of the song (which means you need to be aware of the language of the song’s title— and know if it displays left-to-right or right-to-left).
+                    </p>
+                    <p>
+                        You should also know the length of the song, which means you need a mechanism for extracting durations from music files. Once you have that— say, it’s in milliseconds— you need to divide it by 1,000, then 60, to get minutes. But what if the song is a podcast and 90 minutes long? Do you want to divide further to get hours? So many variables. Gah!
+                    </p>
+                    <p>
+                        I guess you have problems to solve after all. The IDE doesn’t do everything for you.
+                    </p>
+                    <p>
+                        The greatest commercial insight of the technology industry is that if you control a computing environment, you can move the market. You can change the way people do things, the way they listen to music, watch videos, and respond to advertising. People who work at technology companies are supposed to take an idea and multiply it by a few million people, yielding a few billion dollars.
+                    </p>
+                    <p>
+                        A great way to do that is to wrap up your intentions in APIs and SDKs and IDEs. That’s why so much software to make software is free: It stimulates the development of even more software.
+                    </p>
+                    <p>
+                        Sometimes this is the result of corporate ambition: <span class="tech">Java</span> was very much a Sun product, down to the class library; the same is true of <span class="tech">C#</span> for Microsoft. But much of the code in the world is freely available, created by generous volunteers over decades to serve their own needs. The give-and-take between corporations and programming languages is complex. Some language developers are hired to work on their open-sourced languages; <span class="tech">Go</span> and <span class="tech">Python</span> have been funded, to varying degrees, by Google; and the creator of <span class="tech">PHP</span> works at Etsy.
+                    </p>
+                    <aside>
+                        <h2>The Many Button Bezels of Apple</h2>
+                        In Mac OS X, there’s a class called NSButton. It intercepts the clicks of a mouse. A programmer makes a button and tells it what to do when someone clicks on it. A programmer also writes the code that sets a bezel.
+
+                        <button class="push">Push</button>
+                        <span class="caption">Most commonly used button</span>
+
+                        <button class="gradient">Gradient</button>
+                        <span class="caption">Usually below lists or grids</span>
+                        
+
+                        <button class="round-rect">Round Rect</button>
+                        <span class="caption">Used for filtering in Mac Finder and Mail</span>
+
+                        <button class="round-textured">Round Textured</button>
+                        <span class="caption">Designed for toolbars only</span>
+
+                        <button class="textured">Textured</button>
+                        <span class="caption">Usage is a mystery</span>
+
+                        <button class="recessed">Recessed</button>
+                        <span class="caption">Used as a toggle button only</span>
+
+                        <button class="inline">Inline</button>
+                        <span class="caption">New style of push button or indicator</span>
+                    </aside>
+                    <p>
+                        Apple and Microsoft, Amazon and Google: factory factories. Their APIs are the products of many thousands of hours of labor from many programmers. Think of the work involved. Someone needs to manage the SDK. Hundreds of programmers need to write the code for it. People need to write the documentation and organize the demos. Someone needs to fight for a feature to get funded and finished. Someone needs to make sure the translation into German is completed and that there aren’t any embarrassing mistakes that go viral on Twitter. Someone needs to actually write the software that goes into making the IDE work.
+                    </p>
+                    <p>
+                        The modern OS is a feast of wonders: fast video, music players, buckets of buttons. Apple may be the best imaginary button maker in history. Just the bezels are a work to behold. <span class="footnote">Today there are 15 bezel styles, from NSThickSquareBezelStyle to NSSmallSquareBezelStyle.<span class="note" style="transform:translateY(calc(-2 * var(--font-small)))"> For, lo, in New York there was AT&T, which in New Jersey begat Bell Labs, which begat Unix. And it was very good. And in Rochester, N.Y., and later Stamford, Conn., there was Xerox, and it begat PARC, in Palo Alto, which begat Smalltalk. And it was very good. And in Cupertino, Calif., there was Steve Jobs, who begat, with many other men and women, the Macintosh, and it was well-marketed. But Jobs was cast out into the Valley and created NeXT, which married Unix, Smalltalk, and the Macintosh, and named its issue NeXTStep, which is what the “NS” stands for in NSThickSquareBezelStyle, for the influence of a platform is with us always.</span></span> Freedom. (Sort of. They’re still just bezels.) Things that used to require labor and care—showing a map, rotating a giant 3D landscape—can now be done with a few lines of code.
+                    </p>
+                    <p>
+                        When everyone goes to Apple’s annual Worldwide Developers Conference in San Francisco and they stare rapturously as some man in an untucked, expensive shirt talks about “core data,” this is the context. Onstage, presenting its Kits, Apple is rearranging abstractions, saying: Look at the new reality we’ve defined, the way that difficult things are now easy and drab things can be colorful. Your trust in our platform and your dedication of thousands of hours of time have not been misplaced.
+                    </p>
+                    <p>
+                        They’ve pitched variations on this annually for 30 years.
+                    </p>
+                    <p>
+                        In Xcode you can compile everything with one command, and up pops your software for testing. You can see the button you made. You need to click on it. It yearns for clicks. It cries out in a shrill signaling voice like a nano cat on a microfence. Everything inside a computer beseeches everything else. It’s a racket. You click your mouse, and the button cat is finally satisfied. Now the computer can increase the volume, change the color, or bring out the talking paper clip. Destiny fulfilled and, after many rounds of this, test complete.
+                    </p>
+                    <p>
+                        When your app is done, you may sell it in an app store. And if users are excited to use your app, they’ll be motivated to buy more apps. Loops upon loops, feeding into one another, capital accruing to the coffers of the patient software giants. An ecosystem. “Ecosystem” is another debased word, especially given what we keep doing to the real, physical one around us. But if a few hundred thousand people are raising their kids and making things for 100 million people, that’s what they call it.
+                    </p>
+                </div>
+            </section>
+            <footer>
+                <span class="previous"></span>
+                <span class="next">6.1<a href="./pages/the-framework.html">The Framework: Wilder, Younger Cousin of the Software Development Kit↗</a></span>
+            </footer>
+        </article>
+    </body>
+</html>

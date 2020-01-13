@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>What is Code: Chapter 6</title>
+        <link rel="stylesheet" href="../style.css">
+    </head>
+    <body>
+        
+        <nav>
+            <ul>
+                <li>6.0<a href="../index.html">Intro↗</a></li>
+                <li>6.1<a href="./the-framework.html">The Framework: Wilder, Younger Cousin of the Software Development Kit↗</a></li>
+                <li>6.2<a href="./what-is-debugging.html">What Is Debugging?↗</a></li>
+                <li>6.3<a href="./nothing-is-built.html">Nothing Is Built↗</a></li>
+                <li>6.4<a href="./how-does-testing-work.html">How Does Testing Work?↗</a></li>
+                <li class="selected">6.5<a href="./and-now-for-something-beautiful.html">And Now For Something Beautiful...↗</a></li>
+            </ul>
+        </nav>
+        <article>
+            <header>
+                <span class="number">6.5</span>
+                <h1>And Now for Something Beautiful...</h1>
+            </header>
+            <span class="hspacer"></span>
+            <section>
+                <div class="text">
+                    <p>
+                        In my opinion, version control is one of the most beautiful things about programming. It’s one of code culture’s gifts to the world. Version control isn’t like “track changes” in Microsoft Word. That’s a shameful monstrosity that can make even a powerful computer stutter, something only a lawyer could love. No, version control is something different.
+                    </p>
+
+                    <ul class="conversation">
+                        <img class="profile" src="../images/me.png" style="right: calc(-1 * var(--spacer-medium));">
+                        <img class="profile" src="../images/profile.png" style="left: calc(-1 * var(--spacer-medium));">
+                        <li>What if I told you ... </li>
+
+                        <li>Go on...</li>
+
+                        <li>... that you could have a record of every change made to the many, many documents that go into your codebase ...</li>
+
+                        <li>Well that’s interesting. I mean, I could use that for all kinds of things. I could use that to find out where bugs entered the system, for example.</li>
+
+                        <li>... and a record of who made them, up to the minute, a permanent record ...</li>
+
+                        <li>Well that is powerful. I could use it to review the progress my team was making, if I was a manager, by looking at the changes every day.</li>
+
+                        <li>... and every change could be reviewed by anyone, in a totally transparent way ...</li>
+
+                        <li>Everyone can keep up with all the changes and understand how the code is evolving? Every change?</li>
+
+                        <li>... and you can bundle changes and turn them into branches, and anyone can make as many branches as needed, without violating the integrity of the other branches ...</li>
+
+                        <li>I’d say this sounds like some insane parallel-universe fantasy. Someone can completely change the code without interfering with the work of others?</li>
+
+                        <li>... and then you could merge a finished branch back into the main trunk of code, reviewing and fixing inconsistencies as you go ...</li>
+
+                        <li>My God, it’s like you can hear inside my brain. So even though my code is a huge pile of fragile, interdependent components, I can have my code team off working in their own branches and then, because I have spent the time to have a solid testing suite, we can, at the appropriate time, merge their changes and run automated tests to make sure that everything is still working.</li>
+
+                        <li>... and everyone can have the history of every change ever made to the code, even if the codebase is decades old ...</li>
+
+                        <li>Shut up, shut up, and take everything, disembodied code voice, take everything! Take me!</li>
+
+                        <li>... and it’s all completely, totally free to download and is the default way of distributing source code throughout the world!</li>
+
+                        <li>(Faints.)</li>
+                    </ul>
+                    <p>
+                        And that’s why everyone gets excited about <span class="tech">GitHub</span>. You should go to GitHub, you really should. You should poke around and look through the thousands of repositories there, read some of the README files. And you should look into the code, and then look at the commits. A “commit” is a moment of action captured and stored. You can compare one commit with another and see a “diff,” see what’s been added and what’s been removed. See what you can figure out. Take a look at the screen shot below.
+                    </p>
+                    <img src="../images/django.png">
+                    <p>
+                        First, we’re looking at the Django repository. This is the actual, real-life code that makes Django, the Web framework, run. It has 668 people keeping an eye on it, and 14,325 people have starred it as a favorite, and there are 5,692 forks—meaning that people have copied the code into their own repositories with some intention of manipulating and adding to or changing it. These numbers represent invested users. There are likely hundreds of thousands more who downloaded the code just to use it.
+                    </p>
+                    <p>
+                        We see that a user, claudep, has <a href="https://github.com/django/django/commit/170f7115bbae45f26ca8078e749dfe67445a57ea">checked in some code↗</a>. He did this five hours ago, adding a “commit message” that reads <span class="quote">“Fixed #24826—Accounted for filesystem-dependent filename max length.”</span> He’s working in a file called tests.py, which means that this particular new code (marked in green and prefixed by “+” at the beginning of each line) is probably either test code or code to support tests. And thanks to user claudep, this code is now better than it was six hours ago.
+                    </p>
+                    <p>
+                        This is the experience of using version control. It’s a combination news feed and backup system. GitHub didn’t invent version control. <span class="footnote">It took a program called <span class="tech">git</span><span class="note"> What’s with the name, which basically means “jerk” in the U.K.? Torvalds told PCWorld: <span class="quote"> “I’m an egotistical bastard, so I name all my projects after myself. First Linux, now git.”</span></span></span>, which had been developed at first by Linus Torvalds, the chief architect of Linux, and started adding tools and services around it.
+                    </p>
+                    <p>
+                        The way git works is that you can copy the code and all the changes ever made to the code with one command:
+                    </p>
+                    <pre class="code line"><code>
+git <span class="red">clone</span> git@github.com:nodejs/node.git
+                    </code></pre>
+                    <p>
+                        That will copy all of the code that is and was in Node.js to your local machine. Now you can go in and change that code to your heart’s delight. When you’re done changing it, you can type
+                    </p>
+                    <pre class="code line"><code>
+git <span class="red">add</span> .
+                    </code></pre>
+               
+                    <p>
+                        which adds the files that you changed; and then
+                    </p>
+                    <pre class="code line"><code>
+git <span class="red">commit</span>
+                    </code></pre>
+                    <p>
+                        which asks you to enter a commit message explaining what you’ve done; and then
+                    </p>
+                    <pre class="code line"><code>
+git <span class="red">push</span> origin
+                    </code></pre>
+                    <p>
+                        which will cause an error because who do you think you are to come in and start pushing code to the node repository? But if you did have permission, that would push your changes to the master branch of the git repository that is hosted on GitHub.
+                        Github Repositories
+                    </p>
+                    <p>
+                        These commands are now part of the sense memory of many programmers. They type variations on them dozens of times a day, checking in their code to keep a record of the work they’ve done, so they can rewind to any point if they go too deep and screw up too many things.
+                    </p>
+                    <p>
+                        Sometimes the changes pile up to the point that you can look at them all and say, <span class="quote">“This is good. We are ready to release some new code into the world.”</span> Maybe you do this every two weeks; maybe you do it once a year. Maybe, like Facebook, you do it all the time.
+                    </p>
+                    <p>
+                        If your software was at Version 2, you could bundle up all the changes and tag the code. Behold, Version 3.
+                    </p>
+                    <p>
+                        A change comes in a few seconds later from a coder far away; doesn’t matter to Version 3. You’re done with Version 3. Version 3 is part of the permanent record. You might fix some bugs and call that Version 3.1. You might add another feature and call it Version 4.
+                    </p>
+                    <p>
+                        Tools such as git give programmers a common language. <span class="quote">“Did you check that in?”</span> they ask. <span class="quote">“Which commit was that?” “That was going to be in 2.4, but we pushed it to 2.5.”</span> Because each commit gets a <span class="footnote" style="color:red">unique identifier<span class="note">The article identified git commit identifiers as random. They are SHA-1 hashes. Thanks to @wka on GitHub</span></span>, you can pinpoint that commit in space and time and feel confident in the record of code changes in a way that you can rarely feel confident about anything.
+                    </p>
+                    <p>
+                        A side effect of this confidence is increased automation. Let’s say you have a Web server program that’s very popular and serves hundreds of millions of people every month. It runs on 50 different computers on the cloud. Aren’t you something.
+                    </p>
+                    <p>
+                        Your diligent decentralized team frequently writes new code that runs on the servers. So here’s a problem: What’s the best way to get that code onto those 50 computers? Click and drag with your mouse? God, no. What are you, an animal? You set up a continuous integration server and install plug-ins and let the robots serve you.
+                    </p>
+                    <p>
+                        <span class="footnote">Programmers hardly talk about code.<span class="note">Actually, programmers don’t always talk as much as chat online, often using Slack. Slack is an Internet startup that provides a chat service organized around the needs of geographically diverse groups. A large part of its appeal is its simplicity and the ease with which it integrates with other products. Chat channels can quickly come to represent all the work that’s going on inside a company, as a set of streams of text, which can then be searched. Slack provides a short-term institutional memory, which has made a lot of nerds happy. It’s growing quickly. Slack’s investors recently valued it at $2.6 billion; by the time this issue is published, it will probably be worth more than planet earth.</span></span> They chat about data. They chat about requirements and interesting approaches. And they chat constantly about deployment. Which makes sense, because that’s the goal of their work—getting their code from their brain through testing and out to the world, in Web, app, or other form. Programmers, good ones, want to ship and move on to the next nail-biting problem. So there are lots of policies, tons of them, for deploying fresh code. For example:
+                    </p>
+                    <ul class="steps">
+                        <li>All programming work must happen in a branch.</li>
+                        <div class="arrow">↓</div>
+                        <li>When work is done, we will merge it back into the main branch; and 
+                            <ol class="sub">
+                                <li>Run tests;</li>
+                                <li>Then “push” the code over to GitHub.</li>
+                            </ol>
+                        </li>
+                        <div class="arrow">↓</div>
+                        <li>At which point an automated service will run; and</li>
+                        <div class="arrow">↓</div>
+                        <li>A service running on each of the 50 computers will “check out” the code;</li>
+                        <div class="arrow">↓</div>
+                        <li>Install it, overwriting the old version;</li>
+                        <div class="arrow">↓</div>
+                        <li>Then stop the computer’s Web servers;</li>
+                        <div class="arrow">↓</div>
+                        <li>Then restart them, so the new code can load and get to work.</li>
+                    </ul>
+                    <p>
+                        See, tests and version control are now the trigger for actually shipping code. If you can follow a process like this, you can release software several times a day—which in the days of shrink-wrapped software would have been folly. (Often builds were done nightly, by big “build servers,” and one would come in the next morning to get the score.) But now that software can be released via the Web or an app store, why wait? Why not continually release software, every day, whenever you have something that’s ready to go? 
+                        <span style="position: absolute; right: var(--spacer-medium); color: var(--color-background);" >∎</span>
+                    </p>            
+                </div>
+            </section>
+            <footer>
+                <span class="previous">6.4<a href="./how-does-testing-work.html">How Does Testing Work?↖</a></span>
+                
+            </footer>
+        </article>
+    </body>
+</html>

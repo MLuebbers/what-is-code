@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>What is Code: Chapter 6</title>
+        <link rel="stylesheet" href="../style.css">
+    </head>
+    <body>
+        
+        <nav>
+            <ul>
+                <li>6.0<a href="../index.html">Intro↗</a></li>
+                <li class="selected">6.1<a href="./the-framework.html">The Framework: Wilder, Younger Cousin of the Software Development Kit↗</a></li>
+                <li>6.2<a href="./what-is-debugging.html">What Is Debugging?↗</a></li>
+                <li>6.3<a href="./nothing-is-built.html">Nothing Is Built↗</a></li>
+                <li>6.4<a href="./how-does-testing-work.html">How Does Testing Work?↗</a></li>
+                <li>6.5<a href="./and-now-for-something-beautiful.html">And Now For Something Beautiful...↗</a></li>
+            </ul>
+        </nav>
+        <article>
+            <header>
+                <span class="number">6.1</span>
+                <h1>The Framework: Wilder, Younger Cousin of the Software Development Kit</h1>
+            </header>
+            <span class="hspacer"></span>
+            <section>
+                <div class="text">
+                    <p>
+                        Odds are, if you’re doing any kind of programming, especially Web programming, you’ve adopted a framework. Whereas an SDK is an expression of a corporate philosophy, a framework is more like a product pitch. Want to save time? Tired of writing the same old code? Curious about the next new thing? You use a graphics framework to build graphical applications, a Web framework to build Web applications, a network framework to build network servers. There are hundreds of frameworks out there; just about every language has one.
+                    </p>
+                    <aside>
+                        <img src="../images/django_reinhardt.jpg">
+                        <span class="caption">Django Reinhardt, guitar virtuoso and namesake of the Django framework</span>
+                    </aside>
+                    <p>
+                        A popular Web framework is <span class="tech">Django</span>, which is used for coding in Python. Instagram was bootstrapped on it. When you sit down for the first time with Django, you run the command "<span class="inline-code">startproject</span>," and it makes a directory with some files and configuration inside. <span class="footnote">This is your project directory. Now you have access to libraries and services that add to and enhance the ­standard library.<span class="note" style="transform:translateY(calc(-2 * var(--font-small)))">I really like Django. It was written by kind people to help people in publishing. Ruby on Rails is probably the most famous Web framework, of course. It’s great, too!</span></span>
+                    </p>
+                    <p>
+                        Suppose we’re still making our bookstore, the Amazonesque one with the relational database that we started a few pages back. With Django, we run the "<span class="inline-code">startproject</span>" command. You might tell it to start an app called bookstore. Then you’d “set up your models,” meaning you’d start to define how your data looks, using Python’s idioms, which the framework will translate into database-ese.
+                    </p>
+                    <pre class="code"><code>
+<span class="red">from</span> django.db <span class="red">import</span> models
+
+<span class="orange">class</span> Book(models.Model):
+    title = models.CharField(max_length=<span class="green">140</span>)
+    description = models.TextField()
+    price = models.DecimalField(max_digits=<span class="green">6</span>,decimal_places=<span class="green">2</span>)
+                    </code></pre>
+                    <p>
+                        So now we can make a book catalog. (Obviously we need to add authors and the like.) The incredibly neat thing is that with a few more lines of configuration you have a completely functional, working Web-based article editor; to wit:
+                    </p>
+                    <img src="../images/addbook.png">
+                    <p>
+                        That’s called the “admin” view, and it’s always been a main feature of Django. Your work as a programmer has just started, but very soon after the moment of conception, your users—journalists, if you’re building a publishing platform, or alpha testers, or maybe just you, in a testing frame of mind—can start to play with your baby, entering books, trying things out.
+                    </p>
+                    <p>
+                        Take a moment on that. You learn a programming language like Python. You need to make a website that allows a few dozen people to enter data at once. You write a few lines of Python code and set up accounts for people using the admin, and they can start to enter that data. If you do it a few times, you can get very good at this sort of work. You can get a team started on a project in a few hours.
+                    </p>
+                    <p>
+                        Remember those issues about entering e-mail addresses? If you use Django, you can use "<span class="inline-code">EmailField</span>," and many of them are taken care of. Ditto many of the security concerns that arise when building websites, the typical abuses people perpetrate. You have entered into a pool with many thousands of other programmers who share the framework, use it, and suggest improvements; who write tutorials; who write plug-ins that can be used to accomplish tasks related to passwords, blogging, managing spam, providing calendars, accelerating the site, creating discussion forums, and integrating with other services. You can think in terms of architecture.
+                    </p>
+                    <p>
+                        Magnificent! Wonderful! So what’s the downside? Well, frameworks lock you into a way of thinking. You can look at a website and, with a trained eye, go, “Oh, that’s a Ruby on Rails site.” 
+                    </p>
+                    <p>
+                        Frameworks have an obvious influence on the kind of work developers can do. Some people feel that frameworks make things too easy and that they become a crutch. It’s pretty easy to code yourself into a hole, to find yourself trying to force the framework to do something it doesn’t want to. Django, for example, isn’t the right tool for building a giant chat application, nor would you want to try competing with Google Docs using a Django backend. You pay a price in speed and control for all that convenience. The problem is really in knowing how much speed, control, and convenience you need.
+                    </p>
+                    <p>
+                        Programmers talk about “premature optimization”—overthinking your code before you know what the real problems will be—and describe people who overthink programming as “architecture astronauts.” There’s another tendency, NIH (“not invented here”), that comes up a lot.
+                    </p>
+                    <p>
+                        Frameworks can feel a little insulting, because they anticipate your problems and are used by thousands of people. They imply that yours are common, everyday problems, rather than special, amazing mysteries that require a true genius to solve.
+                    </p>
+                    <p>
+                        The opinions of a framework are strong, but not as strong as an SDK. Those are tightly bundled, often commercial, and arrive with PR trumpets blasting, especially when they’re from Apple or Microsoft. Frameworks tend to be derived from frustration and on first release are bound with tape and thrust onto the Web with a blog post. From there they survive—or not. <span class="footnote">There are Web application frameworks for every major language;<span class="note" style="transform:translateY(calc(-2 * var(--font-small)))">“Comparison of Web application frameworks,” which is a solid Wikipedia page. In fact, Wikipedia is an essential programming tool. The summaries of languages and approaches are typically well-vetted and full of code samples.</span></span> <a href="https://en.wikipedia.org/wiki/Comparison_of_web_frameworks">one Wikipedia listing↗</a> shows almost 40 different frameworks for Java alone and almost 30 for PHP.
+                    </p>
+                    <p>
+                        Most of the good frameworks are free, released to solve problems and bring glory and influence to their creators, rather than great riches and control. They spread organically. People see a video tutorial showing them how to make a blog in a few minutes. Then they copy that work and say, “That was easy,” and show their friends. Websites go live, and programmers talk about how quickly they developed said websites.
+                    </p>
+                    <p>
+                        If you’re building a Web app, you’d be a fool not to use a Web framework at first. There are tiny ones for control freaks, focused on URL routing, and massive ones like Django and Rails, which pursue the goals first outlined by large systems such as Smalltalk in days of yore: to enable the development of large, collaborative systems where data can be manipulated and shared. Take the work that’s been done for you. DRY (don’t repeat yourself).
+                    </p>
+                </div>
+            </section>
+            <footer>
+                <span class="previous">6.0<a href="../index.html">Intro↖</a></span>
+                <span class="next">6.2<a href="./what-is-debugging.html">What is Debugging?↗</a></span>
+            </footer>
+        </article>
+    </body>
+</html>
